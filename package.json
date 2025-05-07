@@ -1,15 +1,15 @@
 {
-  "name": "docusaurus-tailwind-shadcn-template",
+  "name": "ahaihadayroi",
   "description": "Integrating Tailwind CSS and Shadcn/ui with Docusaurus website template",
-  "author": "Thành Nam Nguyễn",
+  "author": "Nguyen Hai Ha",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template.git"
+    "url": "git+https://github.com/nguyenhaiha269/ahaihadayroi.git"
   },
   "bugs": {
-    "url": "https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template/issues"
+    "url": "https://github.com/nguyenhaiha269/ahaihadayroi/issues"
   },
-  "homepage": "https://github.com/namnguyenthanhwork/docusaurus-tailwind-shadcn-template#readme",
+  "homepage": "https://github.com/nguyenhaiha269/ahaihadayroi#readme",
   "version": "1.0.0",
   "private": true,
   "scripts": {
