@@ -1,29 +1,43 @@
-name: Build and Deploy
+name: Triển khai Docusaurus lên GitHub Pages
 
 on:
   push:
+    branches:
+      - main # Thay 'main' bằng tên nhánh chính của bạn nếu khác
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
+      # Bước 1: Kiểm tra mã nguồn
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      # Bước 2: Thiết lập Node.js (Đảm bảo phiên bản phù hợp với Docusaurus)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '22.14.0' # Sử dụng Node.js >= 18.17.0
 
+      # Bước 3: Xóa cache npm
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      # Bước 4: Cài đặt dependencies
       - name: Install dependencies
         run: npm install
 
-      - name: Build the site
+      # Bước 5: Xây dựng dự án Docusaurus
+      - name: Build Docusaurus
         run: npm run build
 
+      # Bước 6: Triển khai lên GitHub Pages
       - name: Deploy to GitHub Pages
-        run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build # Thư mục đầu ra của Docusaurus
